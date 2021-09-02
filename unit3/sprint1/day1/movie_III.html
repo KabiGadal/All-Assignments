@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Website</title>
+</head>
+<style>
+    #main {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        gap: 5%;
+        margin-top: 5%;
+    }
+
+    .div {
+        border: 1px solid black;
+
+        text-align: center;
+        background-color: cornsilk;
+        width: 113%;
+    }
+
+    h2 {
+        margin-bottom: 0px;
+        font-size: xx-large;
+        margin-top: 4px;
+    }
+
+    .rating {
+        width: 65px;
+        height: 33px;
+        background: rgb(21, 153, 21);
+        font-weight: 100;
+        color: whitesmoke;
+        font-size: 15px;
+        border-radius: 7px;
+        margin-bottom: 17px;
+    }
+
+    #movie {
+        margin-left: 37%;
+        margin-top: 11px;
+        height: 25px;
+        width: 305px;
+
+    }
+
+    #btn {
+        width: 79px;
+        height: 34px;
+        background: teal;
+        color: white;
+        font-size: larger;
+        border-radius: 15px;
+    }
+
+    .img_1 {
+        width: 120%;
+        height: 400px;
+    }
+    .rec{
+    height: 25px;
+    margin: 0px 0px;
+    text-align: end;
+    width: 259px;
+    }
+</style>
+
+<body>
+    <input type='text' id='movie' placeholder="Enter Movie Name" />
+    <button onclick="showMovie()" id='btn'>Search</button>
+    <div id='main'>
+
+    </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+
+    async function showMovie() {
+        let movie = document.getElementById('movie').value;
+        let div_data = document.getElementById('main')
+
+        let res = await fetch(`
+        http://www.omdbapi.com/?t=${movie}&apikey=a238e857&maxResults=15`
+        );
+        let data = await res.json()
+        console.log(data)
+        if(data.imdbRating > "8.5"){
+          
+            let recommend = document.createElement('p')
+            recommend.setAttribute('class','rec')
+            recommend.innerHTML = `Recommended Movie for you =>`;
+          
+            div_data.appendChild(recommend)
+          
+           
+        }
+        
+        if (data.Response == "True") {
+
+            let div = document.createElement('div');
+            div.setAttribute('class', 'div')
+
+            let name = document.createElement('h2');
+            name.innerHTML = data.Title;
+
+            let image = document.createElement('img')
+            image.src = data.Poster;
+
+            let rating = document.createElement("button");
+            rating.innerHTML = `${data.imdbRating} ★`;
+            rating.setAttribute('class', 'rating')
+
+            let release_date = document.createElement('p')
+            release_date.innerHTML = `Released on ${data.Released}`;
+
+
+            let lang = document.createElement('h3')
+            lang.innerHTML = `Movie: ${data.Language}`;
+
+            div.append(image, name, lang, release_date, rating)
+            div_data.append(div);
+        }
+        else if (data.Response == "False") {
+            let div = document.createElement('div_1')
+            // div.style.display ='block';
+            let notfound = document.createElement('img');
+            notfound.setAttribute('class', 'img_1')
+            notfound.src = `https://shop2shop.co/images/404.gif`;
+            div.append(notfound);
+            div_data.append(div)
+        }
+
+    }
+//   showMovie()
+</script>
