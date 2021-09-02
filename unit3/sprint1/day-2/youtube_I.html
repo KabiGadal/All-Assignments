@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #id{
+    width: 36%;
+    height: 2em;
+    margin-top: 9px;
+    background-color: black;
+    color: white;
+    }
+    #btn{
+    width: 56px;
+    height: 32px;
+    color: grey;
+        margin-top: 9px;
+            background: grey;
+    color: lightgray;
+}
+#btn:hover{
+    cursor: pointer;
+    color:white;
+}
+    hr{
+        width:51%;
+    }
+
+    #nav_bar{
+        border:1px solid black;
+        display:flex;
+        background-color:mintcream;
+    }
+    .left_most{
+        width:5%;
+        margin-top:5px;
+    }
+    .logo_img{
+    width: 29%;
+    height: 3em;
+   
+    }
+    .logo{
+        width:27%;
+    }
+    #voice_img{
+       width: 3%;
+    padding-top: 10px;
+    height: 33px;
+    margin-right: 3%;
+    }
+    .right_most{
+    width: 235px;
+    text-align: center;
+  
+    }
+  
+    .diff_logo{
+        padding-top:5%;
+        width:16%;
+         margin-right:20px;
+    }
+ .more{
+     width:11.5%;
+     margin-left:10px;
+ }
+ .photo{
+    width: 40px;
+    margin-top: 5px;
+    height: 40px;
+    border-radius:50%;
+     border:0.5px solid blue;
+ }
+ #main{
+     display:grid;
+     grid-template-rows: 20% 20% 20% 20%;
+     gap:5%;
+     height: 40em;
+    margin-left: 55px;
+    margin-top: 26px;
+ }
+ div{
+     margin-right:2%;
+ }
+    </style>
+<body>
+    <nav id='nav_bar'>
+        <div class='left_most'>
+    <hr>
+    <hr>
+    <hr>
+</div>
+<div class='logo'><img src='https://havecamerawilltravel.com/photographer/files/2020/01/youtube-logo-new.jpg' 
+   class='logo_img' /></div>
+    <input type='text' id='id' placeholder="Search for videos" />
+    <button onclick='submit()' id='btn'>Search</button>
+    <img src='data:image/png;base64,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'
+    id='voice_img'/>
+    <div class='right_most'>
+        <img src='https://as2.ftcdn.net/jpg/02/28/25/39/500_F_228253920_JDxct27B2o2dGP4YYLug6XYTGphQZDji.jpg'
+        class='diff_logo'/>
+        <img src='https://cdn.iconscout.com/icon/premium/png-512-thumb/dots-7-228363.png'
+                class='diff_logo more' />
+    <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8dHR0AAADW1tacnJyfn58YGBgWFhYaGhoTExPS0tJJSUk0NDQODg78/PzIyMjz8/OqqqpWVlbe3t6GhobAwMDn5+eenp4qKip+fn5wcHBEREQJCQni4uKzs7N3d3eUlJRRUVEiIiKMjIxjY2MuLi42NjZgYGCwsLClqGIcAAAFeElEQVR4nO2di3aqOhBAD9MqAQXBV1Gxvm3//wsP1OttaysEkskMntlfkL0S8piEmT9/BEEQOkoyCWezcJJQtwOJJB1n8EE2Th9QMpkCBMr7QAUAi0dzTCPwvpHnKXWbbBIvQXk3KFjG1O2yRjyGW78S2D2M4u+CheKYumWWmN4RLBQP1G2zQnhXsFAMqVtng5V/39A/U7fOArOKLiw6cUbdPnPegirDoPuTTVLZhZ6K5tQtNOW12vABhukhrzbMp9QtNKX6Myw+xCN1C02pWis+DDs/1Zz71Yb+gLqFpgzFUAzZI4ZiyJ8HN1y/bn5EoG7Zb9I1dTtbEm5XAFGdoOdFAIPDE3VrG7PengBqNmxfhmoOp22XjlHxbAxQ8/3d0gcYzzoSXUzSM9QcKH4ngHPaBcfnTH903uLDqUfd/jrevZ/x+yb0wX+ldqgiHJj5lSjYsZ1Yk0W77++WAKY8P8fRqSbopA8MGcbC40PT9aEKH7bUQrfMB9Y68ALseF0SjzyN7VkzoozTSE1tjtArPvBZNw6WR+h/KOCy/C9wBD02N6gbNMFCkUPMH1OwUFxQ+1Vc0ltS3BILbpEFC0Xal0V1t4MWUDAiFAzNjxI6inSRqiRrfdZtgj8kO2qMa+53bZEviQTxZ5krRLPNkzPB4lOcEAjGdffXNglWBIbuxmgJwSZ84lSQYsnYWQk66RO5fpVS/R4PA9dbmxPCob4a3+1k03PehUUnvjsUTDIH+9Fb1N6hIUUXOu3EeE/QheWTaWc78HeSLnT5FtX9RHrB2TvGqt8LcAFH925H6xF8XXI3kbe5TzLPlChwMtekZIO0GKZOrjLGjvfcXwl2DgTXhF1YdKKDd0U0+5n/DR1EbCgHaTFM39AFa/7ywUYp9GHq/uj7Hfyd24Zsub+A/xcRzbHiE3+FvOjTrhUlgPwKhfozxP8Qp44uY+6Tb3ENXYdJf+LjbtySE/FEUwCohvQTDfbWdMTBEDX4/cLBEHXzvSCfSj0vQg1lHMmnUuSIm9N733ug5tJIPPrFwlMZ4r6N+HB4AfWIOOdg6OWIDzPoot1fwUzbQ3+yKME0dPAUUQPM8xPVtdp3MAPflAH9TzC3bbTR4Cv/gCHiCzAmhs9iKIZiSI0YiqEY0iOGYiiG9IihGIohPWIohmJIjxiKoRjSI4ZiKIb0iKEYiiE9YiiGYkiPGIqhGNIjhmIohvSIoRiKIT1iKIZiSI8YimEHDF/wDBfEqVsuIP7qzKMLEYcph5/xLyApPrMRRFLkJIiiyOUbvGJdkc83eMWyIq8hesGqIr8eLLGoyO0bvGKtjhDHIXrBUi/yFbSkyHWIXrCgyHOS+cRYkbugsSKPJArVGCUg4JGtpQZlkOskPjNIC1WPn7U25JGspZ726VzeGOQu06F1lu8kYpDZSwfltcz+5bikkwFtaybwyAqlQ9vZlEOiSz3aGnZnlLbN4JbQFbJohtq3zYDNIdOlDu1rsnVmxW+flZZDMs96TMo/dmTnbZIpsgOnJ2WYgq8HzAdqYJxjMFxBwHbRUBEMzJOZxq/HPTAlW1rK7Z3MnzgymSMXghAEQRAEQfgXCF962rwgJpLHI22yh3ZQuNE+TaI8biqo2qZJCASz3AEe6wYnZ+yCeEgMtct3q/Z3nKQstd9M45ZwwkP/7spdWXjL6Bqi1jdCRbccJByoW9oWzeJJKnBQihqJqZYioBfAxSPJNBYMFVA30wSd6RS3YiM69ePU2kNfKo41irCkbqEx1YrQ+oKaEZv7igo6ul27IYU7Lx6Cbh58f2Gy++2e1Yfdmrpl9pit4PszwPJus5Pn+rvEo00OEPULTdWPAAJbd5uciMPeZjDc74eDTS9s+4jJGn8ByvqC6fuASjQAAAAASUVORK5CYII='
+     class='diff_logo more' />
+</div>
+    <img src='https://yt3.ggpht.com/yti/APfAmoFSn7XlkBPED1kU3komAqKpisI_olWS_a70y88hNg=s88-c-k-c0x00ffffff-no-rj-mo'
+        class='photo' />
+
+    </nav>
+    <div id='main'></div>
+</body>
+
+</html>
+<script>
+    //let key = 'AIzaSyBBjEScvDokW_SaMxH5TPpj5jM1IBP3K1k';
+    // 'https://youtube.googleapis.com/youtube/v3/search?key=[YOUR_API_KEY]'
+    let div_data = document.getElementById('main')
+    const submit = async ()=> {
+        let div = document.createElement('div')
+        let video = document.getElementById('id').value;
+        let res = await fetch(`
+       https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyBBjEScvDokW_SaMxH5TPpj5jM1IBP3K1k&maxResults=20`
+        );
+        let data = await res.json()
+        console.log('data:', data)
+
+        for ({
+            id: { videoId },
+        } of data.items) {
+            let video_frame = document.createElement('iframe');
+            video_frame.src = `https://www.youtube.com/embed/${videoId}`;
+            video_frame.allow = 'fullscreen';
+            div.append(video_frame);
+            div_data.append(div);
+        }
+    }
+
+</script>
