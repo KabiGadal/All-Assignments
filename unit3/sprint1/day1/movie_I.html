@@ -67,7 +67,7 @@ margin-left: 42%;
         let movie = document.getElementById('movie').value;
       
         let res = await fetch(`
-        http://www.omdbapi.com/?t=${movie}&apikey=a238e857&maxResults=80`
+        http://www.omdbapi.com/?t=${movie}&apikey=a238e857&maxResults=15`
         );
         let data = await res.json()
         console.log(data)
