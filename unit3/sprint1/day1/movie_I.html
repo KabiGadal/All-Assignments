@@ -20,7 +20,6 @@
     text-align: center;
     background-color: cornsilk;
         width: 113%;
-    height: 35em;
     }
     h2{
     margin-bottom: 0px;
@@ -38,7 +37,7 @@
     margin-bottom: 17px;
 }
 #movie{
-margin-left: 42%;
+margin-left: 37%;
     margin-top: 11px;
     height: 25px;
     width: 305px;
@@ -52,27 +51,35 @@ margin-left: 42%;
     font-size: larger;
     border-radius:15px;
 }
+.img_1{
+    width:120%;
+    height:400px;
+}
 </style>
 <body>
     <input type='text' id='movie' placeholder="Enter Movie Name"/>
     <button onclick="showMovie()" id='btn'>Search</button>
-    <div id='main'></div>
+    <div id='main'>
+
+        </div>
+    </div>
     
 </body>
 </html>
 <script>
 
-    let pos = `https://cdn.pixabay.com/photo/2012/10/31/06/18/error-63628__340.jpg`;
+
     async function showMovie(){
-        let movie = document.getElementById('movie').value;
-      
+     let movie = document.getElementById('movie').value;
+        let div_data = document.getElementById('main')
+     
         let res = await fetch(`
         http://www.omdbapi.com/?t=${movie}&apikey=a238e857&maxResults=15`
         );
         let data = await res.json()
         console.log(data)
-        if(data.imdbRating != undefined){
-        let div_data = document.getElementById('main')
+        if(data.Response == "True"){
+       
         let div = document.createElement('div');
         div.setAttribute('class','div')
 
@@ -86,20 +93,26 @@ margin-left: 42%;
         rating.innerHTML = `${data.imdbRating} ★`;
         rating.setAttribute('class', 'rating')
 
+        let release_date = document.createElement('p')
+        release_date.innerHTML= `Released on ${data.Released}`;
     
 
         let lang = document.createElement('h3')
         lang.innerHTML = `Movie: ${data.Language}`; 
 
-        div.append(image,name,lang,rating)
+        div.append(image,name,lang,release_date,rating)
         div_data.append(div);
         }
-        else {
-            let err = document.createElement('img')
-            err.src = pos;
-
-            div_data.append(err)
+        else if(data.Response == "False"){
+            let div = document.createElement('div_1')
+            // div.style.display ='block';
+           let notfound = document.createElement('img');
+           notfound.setAttribute('class','img_1')
+           notfound.src = `https://shop2shop.co/images/404.gif`;
+           div.append(notfound);
+           div_data.append(div)
         }
-    }
+    
+}
 //   showMovie()
 </script>
